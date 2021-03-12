@@ -11,6 +11,11 @@ type Circle struct {
 	raidus float64
 }
 
+type Triangle struct {
+	base   float64
+	height float64
+}
+
 const (
 	pi = math.Pi
 )
@@ -34,8 +39,15 @@ func (r Rectangle) Area() float64 {
 }
 
 /*
-Circl Area method gives the area of a circle of radius r.
+Circle Area method gives the area of a circle of radius r.
 */
 func (c Circle) Area() float64 {
 	return pi * c.raidus * c.raidus
+}
+
+/*
+Triangel Area method gives the area of a triangle with base and height.
+*/
+func (t Triangle) Area() float64 {
+	return 0.5 * t.base * t.height
 }
