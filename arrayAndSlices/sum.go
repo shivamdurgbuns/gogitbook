@@ -10,3 +10,28 @@ func Sum(numbers []int) int {
 	}
 	return sum
 }
+
+/*
+SumAll is a function that sums all the integers from the slices that are provided as the parameter
+*/
+func SumAll(numbersToSum ...[]int) []int {
+	var sums []int
+
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+}
+
+/*
+SumAllTails will return sum of all the preceding values of the parameter given.
+*/
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
+
+	return sums
+}
