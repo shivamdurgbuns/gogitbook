@@ -15,6 +15,10 @@ const (
 	pi = math.Pi
 )
 
+type Shape interface {
+	Area() float64
+}
+
 /*
 Perimeter function returns the perimeter of a square/rectangle.
 */
