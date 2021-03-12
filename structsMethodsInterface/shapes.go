@@ -8,7 +8,7 @@ type Rectangle struct {
 }
 
 type Circle struct {
-	raidus float64
+	radius float64
 }
 
 type Triangle struct {
@@ -42,7 +42,7 @@ func (r Rectangle) Area() float64 {
 Circle Area method gives the area of a circle of radius r.
 */
 func (c Circle) Area() float64 {
-	return pi * c.raidus * c.raidus
+	return pi * c.radius * c.radius
 }
 
 /*
