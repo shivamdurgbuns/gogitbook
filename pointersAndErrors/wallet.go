@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Shivcoin int
 
@@ -15,6 +18,8 @@ type Wallet struct {
 func (s Shivcoin) String() string {
 	return fmt.Sprintf("%d SHC", s)
 }
+
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
 /*
 Deposit method will decposti the money in the wallet.
@@ -31,12 +36,13 @@ func (w *Wallet) Balance() Shivcoin {
 }
 
 /*
-Withdraw methhod will will withdraw coins from the current balance of the wallet.
+Withdraw method will withdraw coins from the current balance of the wallet.
 */
-func (w *Wallet) Withdraw(amount Shivcoin) {
+func (w *Wallet) Withdraw(amount Shivcoin) error {
 	if amount < w.balance {
 		w.balance -= amount
+		return nil
 	} else {
-		return
+		return ErrInsufficientFunds
 	}
 }
